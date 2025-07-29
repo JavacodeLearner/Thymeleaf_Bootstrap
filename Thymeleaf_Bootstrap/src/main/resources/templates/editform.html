@@ -1,0 +1,15 @@
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>editform</title>
+</head>
+<body>
+<form th:action="@{/editupdate}" method="post" th:object="${book}">
+    <input type="hidden" th:field="*{id}" >
+    <input type="text" th:field="*{title}" placeholder="edit title">
+    <input type="text" th:field="*{author}" placeholder="edit author">
+    <button type="submit">Update</button>
+</form>
+</body>
+</html>

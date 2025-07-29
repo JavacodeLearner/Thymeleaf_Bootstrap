@@ -1,0 +1,58 @@
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Thymeleaf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">id</th>
+            <th scope="col">title</th>
+            <th scope="col">author</th>
+            <th scope="col">action</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="b : ${book}">
+            <td th:text="${b.id}"></td>
+            <td th:text="${b.title}"></td>
+            <td th:text="${b.author}"></td>
+<td >
+    <a th:href="@{/delete/{id}(id=${b.id})}" class="btn btn-danger">
+
+        <i class="fa-solid fa-trash"></i>
+    </a>
+
+    <a th:href="@{/edit/{id}(id=${b.id})}" class="btn btn-primary">
+
+        <i class="fa-solid fa-pen-to-square"></i>
+    </a>
+
+
+
+</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <p  class="d-flex justify-content-end"><b>Add more data</b>
+        <a th:href="@{/book}"> <button type="button" class="ms-2 btn btn-primary" >
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        </a>
+    </p>
+
+
+</div>
+
+<script src="https://kit.fontawesome.com/405d295676.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
