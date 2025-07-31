@@ -1,10 +1,18 @@
     package com.Aries.Thymeleaf_Bootstrap.Entity;
 
+    import jakarta.persistence.*;
+    import org.springframework.boot.autoconfigure.domain.EntityScan;
+    import org.springframework.context.annotation.Primary;
+
+    @Entity
     public class Book {
 
-
+@Id
+//@GeneratedValue(strategy= GenerationType.IDENTITY)
         private int id;
+        @Column
         private String title;
+        @Column
         private String author;
 
 

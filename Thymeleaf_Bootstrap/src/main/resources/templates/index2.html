@@ -1,22 +1,22 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" rel="stylesheet">
 
 </head>
 <body>
 <div class="container">
-    <form th:action="@{/bookdetails}" th:object="${modelbook}" method="post">
-        <input type="text" placeholder="enter title" th:field="*{title}">
-        <input type="text" placeholder="enter author" th:field="*{author}">
+    <form method="post" th:action="@{/bookdetails}" th:object="${modelbook}">
+        <input placeholder="enter title" th:field="*{title}" type="text">
+        <input placeholder="enter author" th:field="*{author}" type="text">
         <input type="submit">
 
 
     </form>
 </div>
 <a th:href="@{/}">Home</a>
-<script src="https://kit.fontawesome.com/405d295676.js" crossorigin="anonymous"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/405d295676.js"></script>
 </body>
 </html>

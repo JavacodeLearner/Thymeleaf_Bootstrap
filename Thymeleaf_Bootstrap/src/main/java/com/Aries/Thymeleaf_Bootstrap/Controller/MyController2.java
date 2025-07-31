@@ -16,18 +16,12 @@ public class MyController2 {
         return "home";
     }
 
-    @GetMapping("/home")
-    public String home(){
-
-        return "demo";
-    }
 
     @GetMapping("/book")
     public String home(Model model){
-        model.addAttribute("modelbook",new Book());
+       model.addAttribute("modelbook",new Book());
         return "index2";
     }
-
 
 
 }

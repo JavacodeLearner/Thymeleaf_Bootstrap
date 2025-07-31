@@ -2,6 +2,9 @@ package com.Aries.Thymeleaf_Bootstrap.Controller;
 
 
 import com.Aries.Thymeleaf_Bootstrap.Entity.Book;
+import com.Aries.Thymeleaf_Bootstrap.Entity.BookListWrapper;
+import com.Aries.Thymeleaf_Bootstrap.Service.ServiceRepositoryimpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +17,13 @@ import java.util.List;
 public class MyController {
 
     List<Book> books = new ArrayList<>(List.of(
-            new Book(1, "Maths", "Gautam"),
-            new Book(2, "Science", "Sheela"),
-            new Book(3, "Computer", "Raju")
+            new Book(3, "Maths", "Gautam"),
+            new Book(4, "Science", "Sheela"),
+            new Book(5, "Computer", "Raju")
     ));
 
+    @Autowired
+    ServiceRepositoryimpl serviceRepositoryimpl;
 
     @GetMapping("/booklist")
     public String hello(Model model) {
@@ -81,6 +86,22 @@ public class MyController {
             model.addAttribute("mbook", book);
             return "redirect:/booklist";
         }
+
+    @GetMapping("/allBooks")
+    public String allBooks(){
+//        BookListWrapper booklistwrapper=new BookListWrapper();
+//        booklistwrapper.setBooks(books);
+//        System.out.println(booklistwrapper.getBooks());
+//
+//        for(int i=0;i<books.size();i++){
+//            System.out.println(booklistwrapper.getBooks().get(i).getId());
+//            System.out.println(booklistwrapper.getBooks().get(i).getTitle());
+//            System.out.println(booklistwrapper.getBooks().get(i).getAuthor());
+//        }
+//List<Book> savedbooks=serviceRepositoryimpl.allBooks(booklistwrapper.getBooks());
+        List<Book> savedbooks=serviceRepositoryimpl.allBooks(books);
+        return "redirect:/booklist";
+    }
 
     }
 
